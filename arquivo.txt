@@ -1,0 +1,42 @@
+// Evento de clique nas divs dos times para calcular e exibir a odd acumulada
+document.addEventListener('click', (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    const teamElement = target.closest('.teamA, .Emp, .teamB');
+    const gameElement = target.closest('.game');
+    const removeButton = target.closest('.remove-selection');
+
+    if (teamElement && gameElement) {
+        const gameId = parseInt(gameElement.getAttribute('data-game-id') || '0');
+
+        // Verifica se a seleção já foi feita
+        if (isSelectionAlreadyMade(gameId)) {
+            alert('Você já colocou resultado nessa partida');
+        } else {
+            const team = teamElement.textContent?.trim() || '';
+            const odds = parseFloat(teamElement.getAttribute('data-odds') || '0');
+
+            // Adiciona a seleção à lista
+            selections.push({ gameId, team, odds });
+            userSelections[gameId] = true;
+            displaySelections();
+
+            // Inicializa as odds acumuladas para este jogo se ainda não estiverem definidas
+            if (accumulatedOdds[gameId] === undefined) {
+                accumulatedOdds[gameId] = 0;
+            }
+
+            // Adiciona a odd atual às odds acumuladas para este jogo
+            accumulatedOdds[gameId] += odds;
+
+            // Calcula a odd acumulada total para todos os jogos
+            const totalAccumulatedOdd = Object.keys(accumulatedOdds).map(key => parseInt(key)).map(key => accumulatedOdds[key]).reduce((acc, odd) => acc + odd, 0);
+
+            // Exibe a odd acumulada total
+            displayOddAccumulated(totalAccumulatedOdd);
+        }
+    } else if (removeButton) {
+        const index = parseInt(removeButton.getAttribute('data-game-id') || '0');
+        removeFromSelections(index);
+        displaySelections();
+    }
+});

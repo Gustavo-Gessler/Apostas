@@ -1,0 +1,421 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(115deg, #0f0f0f, #6d07c094)
+}
+
+header{
+    background-color: #59069c94;
+    width: 100%;
+    padding: 20px;
+}
+
+#title1{
+    text-align: center;
+    color: #fff;
+}
+
+#title2{
+    text-align: center;
+    color: #fff;
+    max-width: 50%;
+    margin: 30px auto;
+}
+
+#app {
+    width: 80%;
+    margin: 60px auto;
+    padding: 20px;
+    border: 1px solid #345754;
+    border-radius: 10px;
+    background-color: #345754;
+}
+
+.sport{
+    border: 3px solid #fff;
+    background-color: #6d07c094;
+    width: 100px;
+    padding: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.sport:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+#sports-list{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px;
+}
+
+#games-list {
+    margin-top: 30px;
+    display: block;
+    align-items: center;
+
+}
+
+.game {
+    margin-bottom: 20px; /* Espaçamento entre os jogos */
+}
+
+.game-info{
+    display: flex;
+    gap: 80px;
+    justify-content: space-between;
+}
+
+
+.teamA, .teamB, .Emp{
+    flex: 1;
+    display: flex;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;;
+    justify-content: space-between;
+}
+
+.teamA #Times,
+.Emp #Times,
+.teamB #Times {
+    margin-left: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.teamA #OddTimes,
+.Emp #OddTimes,
+.teamB #OddTimes {
+    margin-right: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.teamA:hover, .teamB:hover, .Emp:hover{
+    opacity: 0.8;
+    background-color: #dd9208;
+    border: none;
+}
+
+#accumulated-odd{
+    color: #fff;
+}
+
+#selections-list {
+    margin-top: 0;
+}
+
+.selection-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selection {
+    width: 320px;
+    background-color: #dd9208;
+    border: 1px solid #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+.selection p {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap; /* Evita a quebra de linha dentro do item */
+    align-items: center;
+}
+
+.selection p span{
+    font-weight: bold;
+}
+
+.remove-selection{
+    background-color: #c00d0d;
+    border: 1px solid #fff;
+    color: #fff;
+    width: 60px;
+    border-radius: 10px;
+    height: 40px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.remove-selection:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+#Tel2{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #fff;
+}
+
+#itens-selected{
+    width: 90%;
+    margin: 30px 8.5% ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px; /* Espaçamento entre os itens */
+}
+
+#itens{
+    margin-left: 8.5%;
+}
+
+#itens label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #fff; /* Cor do texto */
+}
+
+#itens input[type="number"]::-webkit-inner-spin-button,
+#itens input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#itens input[type="number"] {
+    -moz-appearance: textfield; /* Para Firefox */
+    width: 10%;
+    display: block;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#labelAposta{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* Estilo ao focar o input */
+#itens input:focus {
+    outline: none; /* Remover a borda de foco padrão */
+}
+
+#place-bet{
+    margin: 30px 0;
+    padding: 15px;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: rgb(23, 135, 155);
+}
+
+#place-bet:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+#deposito{
+    margin: 20px 20px;
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+    align-items: center;
+}
+
+#deposito label{
+   font-size: 15px;
+   position: absolute;
+   top: 10px;
+   right: 15px;
+   font-weight: bold;
+   color: #fff;
+}
+
+#Depósito{
+    background-color: #fff;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    border: none;
+    top: 80px;
+    right: 60px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#Depósito:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+#deposito input[type="number"]::-webkit-inner-spin-button,
+#deposito input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#deposito input[type="number"] {
+    -moz-appearance: textfield; /* Para Firefox */
+    width: 150px;
+    height: 35px;
+    right: 35px;
+    top: 35px;
+    position: absolute;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#deposito input:focus{
+    outline: 0;
+}
+
+#footer {
+    margin-top: 50px;
+    background-color: #6d07c094;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+
+footer{
+    margin-top: 20px;
+    background-color: #6d07c094;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+}
+
+.selected {
+    background-color: yellow;
+}
+
+#refresh-bet-slip{
+   border: none;
+   background-color: #1e1e66;
+   color: #fff;
+   width: 150px;
+   height: 50px;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: 0.5s;
+   font-weight: bold;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#refresh-bet-slip:hover{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+#bet-slip{
+    width: 80%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: #345754;
+    padding: 20px;
+    gap: 15px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.bet-slip{
+    display: flex;
+}
+
+.OddAcumulada{
+    font-weight: bold;
+}
+
+.ValorApostaTotal{
+    font-weight: bold;
+}
+
+#bet-slip .ApostaFeitas{
+    margin: 20px;
+    background-color: #fff;
+    width: 200px;
+    height: 150px;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 30px;
+    justify-content: flex-start;
+}
+
+#BackApostas{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    cursor: pointer;
+    border: none;
+    width: 100px;
+    height: 50px;
+    color: #000;
+    transition: 0.5s;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+#Boletins{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    cursor: pointer;
+    border: none;
+    width: 100px;
+    height: 50px;
+    color: #000;
+    transition: 0.5s;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+#Boletins:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.pDesp{
+    color: #fff;
+    position: absolute;
+    right: 0;
+    margin-bottom: 20px;
+    top: 120px;
+}
+
+#BackApostas:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}

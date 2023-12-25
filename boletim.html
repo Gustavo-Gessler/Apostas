@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletins</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="background-image: linear-gradient(90deg, #0f0f0f, #6d07c094)">
+  <header>
+    <h1 id="title1">Aposta Esportiva</h1>
+    <button id="BackApostas" onclick="backToApostas()">Apostas</button>
+  </header>
+  <h2 id="Tel2">Abaixo estão os boletins dos jogos que já foram registrados por você</h2>
+  <div id="container" style="text-align: center;">
+    <button id="refresh-bet-slip" style="margin: 30px auto;">Atualizar Boletins</button>
+  </div>
+
+  <div id="bet-slip" style="display: none;"></div>
+
+  <footer id="footer" style="bottom: 0; position: absolute;"></footer>
+
+  <script src="./dist/app.js"></script>
+
+  <script>
+    function displayBetSlipOnBoletim(betSlips) {
+      // Verifica se há dados na localStorage
+      if (betSlips && betSlips.length > 0) {
+        // Exibe o boletim na tela de boletins
+        const betSlipContainer = document.getElementById('bet-slip');
+        betSlipContainer.style.display = 'flex';
+        betSlipContainer.style.flexWrap = 'wrap';
+
+        betSlips.forEach((bet) => {
+          // Cria um elemento `<div>` para cada aposta
+          const betElement = document.createElement('div');
+          betElement.classList.add('ApostaFeitas');
+
+          // Concatena o conteúdo da aposta
+          betElement.textContent = `${bet.selections.map((selection) => `${selection.team} (${selection.odds})`).join(', ')}`;
+
+          // Adiciona o elemento ao boletim
+          betSlipContainer.appendChild(betElement);
+
+          // Adiciona Odd Acumulada
+          const accumulatedOddElement = document.createElement('p');
+          accumulatedOddElement.textContent = `Odd Acumulada: ${bet.accumulatedOdd.toFixed(2)}`;
+          accumulatedOddElement.classList.add('OddAcumulada')
+          betElement.appendChild(accumulatedOddElement);
+
+          // Adiciona Valor da Aposta
+          const betAmountElement = document.createElement('p');
+          betAmountElement.textContent = `Valor Total Previsto: R$ ${bet.totalBetValue.toFixed(2)}`;
+          betAmountElement.classList.add('ValorApostaTotal')
+          betElement.appendChild(betAmountElement);
+        });
+      } else {
+        // Se não houver dados, exibe uma mensagem indicando que não há apostas
+        const betSlipContainer = document.getElementById('bet-slip');
+        const noBetsMessage = document.createElement('p');
+        noBetsMessage.textContent = 'Nenhuma aposta realizada.';
+        betSlipContainer.innerHTML = '';
+        betSlipContainer.appendChild(noBetsMessage);
+      }
+    }
+
+    // Evento de clique no botão de atualizar boletins
+    document.getElementById('refresh-bet-slip').addEventListener('click', () => {
+      // Chama a função
+      displayBetSlipOnBoletim(getBetDataFromLocalStorage());
+
+      // Colocar o footer embaixo na tela
+      const footer = document.getElementById("footer");
+      footer.style.position = 'relative'
+    });
+
+    function getBetDataFromLocalStorage() {
+      const storedBetData = localStorage.getItem('betData');
+      const betSlips = storedBetData ? JSON.parse(storedBetData) : [];
+      return betSlips;
+    }
+  </script>
+</body>
+
+</html>

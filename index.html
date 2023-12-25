@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sports Betting</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title1">Aposta Esportiva</h1>
+        <button id="Boletins" onclick="Boletim()">Boletins</button>
+    </header>
+    <div id="deposito">
+        <label id="labelDesp">Digite o valor do seu depósito</label>
+        <input type="number" id="amountDesp">
+        <button id="Depósito" onclick="Depositar()">Depósito</button>
+    </div>
+    <h2 id="title2">Abaixo temos algumas listas de vários esportes que você pode apostar e conferir seus ganhos com o
+        determinado números de jogos que queira jogar</h2>
+    <div id="app">
+        <div id="sports-list">
+            <!-- Lista de esportes -->
+        </div>
+        <div id="games-list">
+            <!-- Lista de jogos -->
+        </div>
+        <!--<div id="bet-amount">-->
+
+        </div>
+        <div id="itens-selected">
+            <div id="selections-list">
+        
+            </div>
+        </div> 
+        <div id="itens">          
+            <p id="accumulated-odd">Odd Acumulada: 0.00</p>
+            <label id="labelAposta" for="amount">Aposta:</label>
+            <input type="number" id="amount" min="1">
+            <button id="place-bet" onclick="placeBet()">Fazer Aposta</button>
+        </div>   
+    </div>
+    <footer>
+    </footer>
+    <script src="./dist/app.js"></script>
+</body>
+
+</html>
